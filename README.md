@@ -1,30 +1,38 @@
-# SmartTask Pro 🚀
+# 🚀 SmartTask Pro
 
 A modern and responsive To-Do List application built using HTML, CSS, and JavaScript.
 
-## Features
+This project allows users to manage daily tasks efficiently with features such as task creation, completion tracking, filtering, dark/light theme switching, and local storage support.
 
-* Add Tasks
-* Delete Tasks
-* Mark Tasks as Completed
-* Due Date Support
-* Filter Tasks (All / Active / Completed)
-* Dark & Light Theme Toggle
-* Progress Tracking
-* Task Statistics
-* Local Storage Support
-* Responsive Design
-* Modern Glassmorphism UI
+---
 
-## Technologies Used
+## ✨ Features
 
-* HTML5
-* CSS3
-* JavaScript (ES6)
-* Local Storage API
+- ➕ Add New Tasks
+- 🗑️ Delete Tasks
+- ✅ Mark Tasks as Completed
+- 📅 Due Date Support
+- 🔍 Filter Tasks (All / Active / Completed)
+- 🌙 Dark Theme
+- ☀️ Light Theme
+- 📊 Progress Tracking
+- 💾 Local Storage Support
+- 📱 Fully Responsive Design
 
-## Folder Structure
+---
 
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Local Storage API
+
+---
+
+## 📂 Project Structure
+
+```
 smarttask-todo-app/
 │
 ├── assets/
@@ -34,16 +42,57 @@ smarttask-todo-app/
 ├── style.css
 ├── script.js
 └── README.md
+```
 
-## Live Demo
+---
 
-Add your deployed link here.
+## 📱 Responsive Design
 
-## GitHub Repository
+The application is optimized for:
 
-Add your repository link here.
+- Desktop
+- Tablet
+- Mobile Devices
 
-## Author
+---
+
+## 🌐 Live Demo
+
+https://rachitsharma05.github.io/Syntecxhub_smarttask-todo-app/
+
+---
+
+## 🔗 GitHub Repository
+
+https://github.com/rachitsharma05/Syntecxhub_smarttask-todo-app
+
+---
+
+## 📚 Learning Outcomes
+
+Through this project, I practiced:
+
+- DOM Manipulation
+- Event Handling
+- Local Storage Integration
+- Responsive Web Design
+- Theme Switching
+- Dynamic UI Updates
+
+---
+
+## 🚀 Future Improvements
+
+- Task Categories
+- Task Priority Levels
+- Reminder Notifications
+- Drag & Drop Task Sorting
+- Cloud Database Integration
+
+---
+
+## 👨‍💻 Author
 
 Rachit Sharma
 
+Frontend Development Intern @ Syntecxhub
