@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartTask Pro | Productivity Manager</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div>
+                <h1>🚀 SmartTask Pro</h1>
+                <p class="subtitle">
+                    Plan smarter. Work faster.
+                </p>
+            </div>
+
+            <button id="themeToggle" class="theme-btn">
+                🌙
+            </button>
+
+        </div>
+
+        <!-- Input Section -->
+
+        <div class="input-section">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs doing?"
+            >
+
+            <input
+                type="date"
+                id="dueDate"
+            >
+
+            <button id="addBtn">
+                Add
+            </button>
+
+        </div>
+
+        <!-- Stats -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3 id="totalTasks">0</h3>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="activeTasks">0</h3>
+                <p>Active</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="completedTasks">0</h3>
+                <p>Completed</p>
+            </div>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="progress-section">
+
+            <div class="progress-info">
+                <span>Progress</span>
+                <span id="progressPercent">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+        </div>
+
+        <!-- Filters -->
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="active">
+                Active
+            </button>
+
+            <button class="filter-btn" data-filter="completed">
+                Completed
+            </button>
+
+        </div>
+
+        <!-- Task List -->
+
+        <ul id="taskList"></ul>
+
+        <!-- Empty State -->
+
+        <div id="emptyState" class="empty-state">
+
+            <div class="empty-icon">
+                ✨
+            </div>
+
+            <h2>Your canvas is clear</h2>
+
+            <p>
+                No tasks yet — add something above and start
+                building a productive day.
+            </p>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p id="taskCounter">
+                0 tasks remaining
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 Rachit Sharma | Built with ❤️ and Code
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
