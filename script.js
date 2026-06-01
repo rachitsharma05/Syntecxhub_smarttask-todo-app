@@ -16,53 +16,78 @@ const taskCounter = document.getElementById("taskCounter");
 
 const themeToggle = document.getElementById("themeToggle");
 
-const filterButtons = document.querySelectorAll(".filter-btn");
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+/* =========================
+   APP STATE
+========================= */
+
+let tasks =
+    JSON.parse(
+        localStorage.getItem("tasks")
+    ) || [];
 
 let currentFilter = "all";
 
-/* ----------------------- */
-/* Theme Logic */
-/* ----------------------- */
+/* =========================
+   THEME LOGIC
+========================= */
 
-const savedTheme = localStorage.getItem("theme");
+const savedTheme =
+    localStorage.getItem("theme");
 
 if (savedTheme === "light") {
-    document.body.classList.add("light-theme");
+
+    document.body.classList.add(
+        "light-theme"
+    );
+
     themeToggle.textContent = "☀️";
 }
 
-themeToggle.addEventListener("click", () => {
+themeToggle.addEventListener(
+    "click",
+    () => {
 
-    document.body.classList.toggle("light-theme");
+        document.body.classList.toggle(
+            "light-theme"
+        );
 
-    const isLight =
-        document.body.classList.contains("light-theme");
+        const isLight =
+            document.body.classList.contains(
+                "light-theme"
+            );
 
-    themeToggle.textContent =
-        isLight ? "☀️" : "🌙";
+        themeToggle.textContent =
+            isLight
+                ? "☀️"
+                : "🌙";
 
-    localStorage.setItem(
-        "theme",
-        isLight ? "light" : "dark"
-    );
-});
+        localStorage.setItem(
+            "theme",
+            isLight
+                ? "light"
+                : "dark"
+        );
+    }
+);
 
-/* ----------------------- */
-/* Save Tasks */
-/* ----------------------- */
+/* =========================
+   SAVE TASKS
+========================= */
 
 function saveTasks() {
+
     localStorage.setItem(
         "tasks",
         JSON.stringify(tasks)
     );
 }
 
-/* ----------------------- */
-/* Add Task */
-/* ----------------------- */
+/* =========================
+   ADD TASK
+========================= */
 
 function addTask() {
 
@@ -72,19 +97,30 @@ function addTask() {
     const dueDate =
         dueDateInput.value;
 
-    if (!text) return;
+    if (!text) {
+        alert(
+            "Please enter a task."
+        );
+        return;
+    }
 
     tasks.push({
+
         id: Date.now(),
-        text,
-        dueDate,
+
+        text: text,
+
+        dueDate: dueDate,
+
         completed: false
+
     });
 
     taskInput.value = "";
     dueDateInput.value = "";
 
     saveTasks();
+
     renderTasks();
 }
 
@@ -96,21 +132,24 @@ addBtn.addEventListener(
 taskInput.addEventListener(
     "keypress",
     (e) => {
+
         if (e.key === "Enter") {
             addTask();
         }
+
     }
 );
 
-/* ----------------------- */
-/* Toggle Task */
-/* ----------------------- */
+/* =========================
+   TOGGLE TASK
+========================= */
 
 function toggleTask(id) {
 
     tasks = tasks.map(task => {
 
         if (task.id === id) {
+
             task.completed =
                 !task.completed;
         }
@@ -119,50 +158,59 @@ function toggleTask(id) {
     });
 
     saveTasks();
+
     renderTasks();
 }
 
-/* ----------------------- */
-/* Delete Task */
-/* ----------------------- */
+/* =========================
+   DELETE TASK
+========================= */
 
 function deleteTask(id) {
 
     tasks = tasks.filter(
+
         task => task.id !== id
+
     );
 
     saveTasks();
+
     renderTasks();
 }
 
-/* ----------------------- */
-/* Filter Tasks */
-/* ----------------------- */
+/* =========================
+   FILTERS
+========================= */
 
-filterButtons.forEach(btn => {
+filterButtons.forEach(button => {
 
-    btn.addEventListener(
+    button.addEventListener(
         "click",
         () => {
 
-            filterButtons.forEach(
-                b => b.classList.remove("active")
+            filterButtons.forEach(btn =>
+                btn.classList.remove(
+                    "active"
+                )
             );
 
-            btn.classList.add("active");
+            button.classList.add(
+                "active"
+            );
 
             currentFilter =
-                btn.dataset.filter;
+                button.dataset.filter;
 
             renderTasks();
         }
     );
+
 });
 
-/* ----------------------- */
-/* Stats */
-/* ----------------------- */
+/* =========================
+   UPDATE STATS
+========================= */
 
 function updateStats() {
 
@@ -189,7 +237,7 @@ function updateStats() {
     taskCounter.textContent =
         `${active} task${active !== 1 ? "s" : ""} remaining`;
 
-    const percent =
+    const percentage =
         total === 0
             ? 0
             : Math.round(
@@ -197,23 +245,26 @@ function updateStats() {
             );
 
     progressFill.style.width =
-        `${percent}%`;
+        `${percentage}%`;
 
     progressPercent.textContent =
-        `${percent}%`;
+        `${percentage}%`;
 }
 
-/* ----------------------- */
-/* Render Tasks */
-/* ----------------------- */
+/* =========================
+   RENDER TASKS
+========================= */
 
 function renderTasks() {
 
     taskList.innerHTML = "";
 
-    let filteredTasks = [...tasks];
+    let filteredTasks =
+        [...tasks];
 
-    if (currentFilter === "active") {
+    if (
+        currentFilter === "active"
+    ) {
 
         filteredTasks =
             tasks.filter(
@@ -233,9 +284,12 @@ function renderTasks() {
     if (
         filteredTasks.length === 0
     ) {
+
         emptyState.style.display =
             "block";
+
     } else {
+
         emptyState.style.display =
             "none";
     }
@@ -255,15 +309,19 @@ function renderTasks() {
             <div class="task-left">
 
                 <div class="task-title">
+
                     ${task.text}
+
                 </div>
 
                 <div class="task-date">
+
                     ${
                         task.dueDate
                         ? "📅 Due: " + task.dueDate
                         : "No due date"
                     }
+
                 </div>
 
             </div>
@@ -273,13 +331,17 @@ function renderTasks() {
                 <button
                     class="complete-btn"
                     onclick="toggleTask(${task.id})">
+
                     ✓
+
                 </button>
 
                 <button
                     class="delete-btn"
                     onclick="deleteTask(${task.id})">
+
                     🗑
+
                 </button>
 
             </div>
@@ -292,15 +354,15 @@ function renderTasks() {
     updateStats();
 }
 
-/* ----------------------- */
-/* Initial Load */
-/* ----------------------- */
+/* =========================
+   INITIAL LOAD
+========================= */
 
 renderTasks();
 
-/* ----------------------- */
-/* Global Functions */
-/* ----------------------- */
+/* =========================
+   GLOBAL FUNCTIONS
+========================= */
 
 window.toggleTask =
     toggleTask;

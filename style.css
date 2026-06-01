@@ -28,6 +28,8 @@ body.light-theme {
     --shadow: rgba(0,0,0,0.08);
 }
 
+/* Reset */
+
 *{
     margin:0;
     padding:0;
@@ -35,10 +37,21 @@ body.light-theme {
     font-family:'Poppins',sans-serif;
 }
 
+img,
+input,
+button,
+select,
+textarea{
+    max-width:100%;
+}
+
+/* Body */
+
 body{
     min-height:100vh;
     padding:20px;
     overflow-x:hidden;
+
     background:
     linear-gradient(
         135deg,
@@ -59,6 +72,8 @@ body.light-theme{
         #f8fafc
     );
 }
+
+/* App Container */
 
 .app-container{
     width:100%;
@@ -85,6 +100,8 @@ body.light-theme{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
+
     margin-bottom:30px;
 }
 
@@ -123,12 +140,13 @@ body.light-theme{
     transform:translateY(-3px);
 }
 
-/* Input */
+/* Input Section */
 
 .input-section{
     display:grid;
     grid-template-columns:2fr 1fr auto;
     gap:15px;
+
     margin-bottom:30px;
 }
 
@@ -151,8 +169,29 @@ body.light-theme{
     color:var(--text-secondary);
 }
 
+/* Date Field */
+
+.date-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.date-field label{
+    font-size:.85rem;
+    color:var(--text-secondary);
+    font-weight:500;
+}
+
+#dueDate{
+    min-width:0;
+}
+
+/* Add Button */
+
 #addBtn{
     border:none;
+
     padding:16px 28px;
 
     border-radius:16px;
@@ -178,6 +217,7 @@ body.light-theme{
 .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
+
     gap:15px;
 
     margin-bottom:30px;
@@ -229,7 +269,8 @@ body.light-theme{
     width:0%;
     height:100%;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         90deg,
         #22c55e,
         #4ade80
@@ -272,7 +313,7 @@ body.light-theme{
     color:white;
 }
 
-/* Tasks */
+/* Task List */
 
 #taskList{
     list-style:none;
@@ -303,11 +344,15 @@ body.light-theme{
     display:flex;
     flex-direction:column;
     gap:6px;
+
+    width:100%;
 }
 
 .task-title{
     font-size:1rem;
     font-weight:500;
+
+    word-break:break-word;
 }
 
 .task-date{
@@ -347,7 +392,6 @@ body.light-theme{
 
 .empty-state{
     text-align:center;
-
     padding:50px 20px;
 }
 
@@ -418,39 +462,14 @@ footer{
     }
 }
 
-/* Responsive */
-
 /* =========================
-   RESPONSIVE DESIGN
+   TABLET
 ========================= */
-
-img,
-input,
-button,
-select,
-textarea{
-    max-width:100%;
-}
-
-#dueDate{
-    min-width:0;
-}
-
-.task-left{
-    width:100%;
-}
-
-.task-title{
-    word-break:break-word;
-}
-
-/* Tablet */
 
 @media(max-width:768px){
 
     body{
         padding:20px 15px;
-        overflow-x:hidden;
     }
 
     .app-container{
@@ -461,7 +480,6 @@ textarea{
     .header{
         flex-direction:column;
         text-align:center;
-        gap:20px;
     }
 
     .input-section{
@@ -493,7 +511,9 @@ textarea{
     }
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:500px){
 
@@ -565,7 +585,9 @@ textarea{
     }
 }
 
-/* Very Small Devices */
+/* =========================
+   SMALL DEVICES
+========================= */
 
 @media(max-width:360px){
 
